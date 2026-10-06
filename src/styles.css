@@ -1,0 +1,973 @@
+/* ==========================================================================
+   LUNA MODE — LUXURY FASHION DIGITAL EXPERIENCE
+   Architecture, Design System, Scroll-Driven Motion & Responsive Adaptation
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & SYSTEM VARIABLES
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --bg-primary: #0A0C0E;
+  --bg-secondary: #101317;
+  --bg-surface: #15191E;
+  --text-primary: #EDE7DC;
+  --text-secondary: #9EA5A8;
+  --border-subtle: rgba(237, 231, 220, 0.13);
+  --border-active: rgba(237, 231, 220, 0.35);
+  
+  /* Accents */
+  --accent-amber: #E8913C;
+  --accent-amber-glow: rgba(232, 145, 60, 0.35);
+  --accent-teal: #2E6B72;
+  --accent-teal-glow: rgba(46, 107, 114, 0.30);
+  
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Sora', sans-serif;
+  
+  /* Easing Functions */
+  --ease-cinematic: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  
+  /* Dimensions & Spacing */
+  --header-height: 58px;
+  --section-padding-y: clamp(2.5rem, 5vw, 4.5rem);
+  --container-max: 1440px;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE RULES
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--accent-amber);
+  color: var(--bg-primary);
+}
+
+/* Focus Visible Accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-amber);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY SYSTEM
+   -------------------------------------------------------------------------- */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.headline-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
+.meta-label {
+  font-family: var(--font-body);
+  font-size: clamp(10px, 0.75vw, 11px);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stroke-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  -webkit-text-stroke: 1.5px rgba(237, 231, 220, 0.22);
+  color: transparent;
+  line-height: 0.8;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVIGATION / HEADER (58px Fixed Blur)
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: rgba(10, 12, 14, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: transform 0.4s var(--ease-cinematic), background-color 0.4s ease;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-editorial);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-btn-shop {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 8px 20px;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-btn-shop::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--text-primary);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.35s var(--ease-cinematic);
+  z-index: -1;
+}
+
+.nav-btn-shop:hover {
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.nav-btn-shop:hover::before {
+  transform: scaleY(1);
+}
+
+/* Mobile Drawer */
+.mobile-menu-drawer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-primary);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  transform: translateY(-100%);
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.mobile-menu-drawer.is-active {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO — PORTAL OPENING EXPERIENCE (250vh Sticky Portal)
+   -------------------------------------------------------------------------- */
+.hero-scroll-container {
+  height: 140vh;
+  position: relative;
+  width: 100%;
+}
+
+.hero-sticky-stage {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+/* Portal Panels */
+.portal-panel {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50.5%;
+  background-color: var(--bg-primary);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(2rem, 5vw, 4rem);
+  will-change: transform, opacity, filter;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+.portal-panel-left {
+  left: 0;
+  border-right: 1px solid var(--border-subtle);
+  transform-origin: left center;
+}
+
+.portal-panel-right {
+  right: 0;
+  border-left: 1px solid var(--border-subtle);
+  transform-origin: right center;
+}
+
+/* Portal Background Architecture Detail */
+.portal-wireframe {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(to right, rgba(237, 231, 220, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(237, 231, 220, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.7;
+}
+
+/* Hero Typography Split */
+.hero-split-wrapper {
+  position: absolute;
+  z-index: 25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  width: 100%;
+  pointer-events: none;
+  will-change: transform, opacity, letter-spacing;
+}
+
+.split-luna, .split-mode {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 13vw, 13rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.85;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+/* Accent Particles */
+.hero-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent-amber);
+  box-shadow: 0 0 14px 2px var(--accent-amber);
+  z-index: 28;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.particle-1 {
+  top: 50%;
+  left: 49%;
+}
+
+.particle-2 {
+  bottom: 50%;
+  right: 49%;
+}
+
+/* Laptop Canvas & Reveal Target */
+.hero-laptop-container {
+  position: absolute;
+  width: min(92vw, 1100px);
+  aspect-ratio: 16 / 10;
+  max-height: 80vh;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity, filter;
+  transform: translateY(80px) scale(1.15) perspective(1200px) rotateX(8deg);
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.laptop-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #0d0f12;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.85), 0 0 40px rgba(46, 107, 114, 0.15);
+  overflow: hidden;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.laptop-screen-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.laptop-screen-glass img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s var(--ease-cinematic);
+}
+
+.laptop-screen-glass:hover img {
+  transform: scale(1.02);
+}
+
+/* Scroll To Enter Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 30;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--accent-amber), transparent);
+  animation: scrollPulse 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes scrollPulse {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION — EDITORIAL STATEMENT (Section 01)
+   -------------------------------------------------------------------------- */
+.editorial-statement-section {
+  position: relative;
+  background-color: var(--bg-primary);
+  padding: var(--section-padding-y) 0;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.statement-bg-number {
+  position: absolute;
+  top: -8vw;
+  right: -4vw;
+  font-size: clamp(14rem, 32vw, 36rem);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.floating-circle-frame {
+  width: min(384px, 75vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: 1px solid var(--border-subtle);
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  transition: transform 0.8s var(--ease-editorial);
+}
+
+.floating-circle-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.floating-circle-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.6s ease, transform 0.8s var(--ease-editorial);
+}
+
+.floating-circle-frame:hover .floating-circle-inner img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.clip-reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION — COLLECTION 01 (Asymmetric Editorial Grid)
+   -------------------------------------------------------------------------- */
+.collection-section {
+  position: relative;
+  background-color: var(--bg-secondary);
+  padding: var(--section-padding-y) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.editorial-img-reveal {
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.2s var(--ease-editorial);
+}
+
+.editorial-img-reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-cinematic);
+}
+
+.editorial-img-reveal:hover img {
+  transform: scale(1.04);
+}
+
+/* Hairline Accents */
+.hairline-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-subtle);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION — THE LOOKBOOK (Horizontal Runway Showcase)
+   -------------------------------------------------------------------------- */
+.lookbook-section {
+  position: relative;
+  background-color: var(--bg-primary);
+  width: 100%;
+}
+
+.lookbook-sticky-track {
+  display: flex;
+  gap: clamp(2rem, 4vw, 5rem);
+  padding: 0 clamp(1.5rem, 5vw, 6rem);
+  width: max-content;
+  will-change: transform;
+}
+
+.lookbook-item {
+  width: clamp(300px, 32vw, 480px);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lookbook-image-box {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.lookbook-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-cinematic);
+}
+
+.lookbook-item:hover .lookbook-image-box img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION — PRODUCTS / CATALOG (Curated Luxury Grid)
+   -------------------------------------------------------------------------- */
+.catalog-section {
+  position: relative;
+  background-color: var(--bg-secondary);
+  padding: var(--section-padding-y) 0;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-cinematic), filter 0.5s ease;
+}
+
+.product-item:hover .product-image-container img {
+  transform: scale(1.04);
+}
+
+.product-btn-add {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  width: fit-content;
+  position: relative;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.product-btn-add::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--accent-amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-editorial);
+}
+
+.product-btn-add:hover {
+  color: var(--accent-amber);
+  border-color: transparent;
+}
+
+.product-btn-add:hover::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   10. INTERACTIVE CARD DECK (Experimental Gesture Carousel)
+   -------------------------------------------------------------------------- */
+.deck-section {
+  position: relative;
+  background-color: var(--bg-primary);
+  padding: var(--section-padding-y) 0;
+  overflow: hidden;
+}
+
+.deck-container {
+  position: relative;
+  width: min(440px, 86vw);
+  height: min(580px, 70vh);
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.deck-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+  user-select: none;
+  touch-action: none;
+  cursor: grab;
+  will-change: transform, opacity;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-card:active {
+  cursor: grabbing;
+}
+
+.deck-card-image {
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  pointer-events: none;
+}
+
+.deck-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.deck-card-body {
+  padding: 1.5rem;
+  background-color: rgba(16, 19, 23, 0.95);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Initial Deck Rotations */
+.deck-card[data-index="0"] {
+  transform: rotate(-4deg) translateZ(0);
+  z-index: 3;
+}
+
+.deck-card[data-index="1"] {
+  transform: rotate(2deg) scale(0.96) translateY(12px) translateZ(-10px);
+  z-index: 2;
+}
+
+.deck-card[data-index="2"] {
+  transform: rotate(-1deg) scale(0.92) translateY(24px) translateZ(-20px);
+  z-index: 1;
+}
+
+.deck-card[data-index="3"] {
+  transform: rotate(3deg) scale(0.88) translateY(36px) translateZ(-30px);
+  z-index: 0;
+}
+
+
+/* Card Throw State */
+.deck-card.is-thrown {
+  transition: transform 0.6s var(--ease-editorial), opacity 0.6s ease;
+  transform: translate3d(1000px, -200px, 0) rotate(90deg) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.deck-card.is-thrown-left {
+  transition: transform 0.6s var(--ease-editorial), opacity 0.6s ease;
+  transform: translate3d(-1000px, -200px, 0) rotate(-90deg) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.deck-card.is-returning {
+  transition: transform 0.5s var(--ease-cinematic) !important;
+}
+
+/* Deck Progress Line */
+.deck-progress-wrapper {
+  max-width: 440px;
+  margin: 2.5rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.deck-progress-bar {
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 33.33%;
+  background-color: var(--accent-amber);
+  transition: transform 0.4s var(--ease-cinematic), width 0.4s var(--ease-cinematic);
+}
+
+/* --------------------------------------------------------------------------
+   11. SECTION — BRAND PHILOSOPHY ("FORM FOLLOWS FEELING.")
+   -------------------------------------------------------------------------- */
+.philosophy-section {
+  position: relative;
+  background-color: var(--bg-secondary);
+  padding: clamp(6rem, 14vw, 14rem) 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.philosophy-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 10vw, 10.5rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  transition: transform 0.8s var(--ease-editorial), opacity 0.8s ease;
+}
+
+/* --------------------------------------------------------------------------
+   12. SECTION — FULL-WIDTH CAMPAIGN
+   -------------------------------------------------------------------------- */
+.campaign-section {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-primary);
+}
+
+.campaign-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.campaign-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transform: scale(1.15);
+  filter: grayscale(100%);
+  transition: transform 0.2s linear, filter 0.2s linear;
+  will-change: transform, filter;
+}
+
+.campaign-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(10, 12, 14, 0.75) 100%),
+              linear-gradient(to bottom, rgba(10,12,14,0.4) 0%, transparent 40%, rgba(10,12,14,0.8) 100%);
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   13. FOOTER & GIANT ARCHITECTURAL WORDMARK (20vw)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  background-color: var(--bg-primary);
+  padding-top: clamp(5rem, 8vw, 9rem);
+  border-top: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.newsletter-input {
+  width: 100%;
+  background: transparent;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-bottom-color: var(--accent-amber);
+}
+
+.newsletter-btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 10px 24px;
+  background-color: var(--accent-amber);
+  color: var(--bg-primary);
+  font-weight: 600;
+  border-radius: 2px;
+  transition: transform 0.3s var(--ease-editorial), background-color 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background-color: #f0a050;
+  transform: translateY(-2px);
+}
+
+.footer-wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4rem, 19.5vw, 24rem);
+  line-height: 0.76;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: rgba(237, 231, 220, 0.05);
+  text-align: center;
+  user-select: none;
+  pointer-events: none;
+  margin-top: clamp(2rem, 5vw, 6rem);
+  transform: translateY(12%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   14. MODERN SCROLL-DRIVEN ANIMATIONS (@supports CSS)
+   -------------------------------------------------------------------------- */
+@supports (animation-timeline: scroll()) {
+  /* When browser natively supports scroll-driven animation */
+  .hero-scroll-container {
+    view-timeline-name: --hero-view;
+    view-timeline-axis: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   15. REDUCED MOTION ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .portal-panel-left, .portal-panel-right {
+    opacity: 0.1 !important;
+    transform: none !important;
+  }
+  
+  .hero-laptop-container {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  
+  .hero-split-wrapper {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. MOBILE & TABLET RESPONSIVENESS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 54px;
+  }
+  
+  .hero-scroll-container {
+    height: 125vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-scroll-container {
+    height: 110vh;
+  }
+  
+  .portal-panel {
+    padding: 1.5rem;
+  }
+  
+  .hero-laptop-container {
+    width: 94vw;
+  }
+  
+  .split-luna, .split-mode {
+    font-size: clamp(2.5rem, 13vw, 5rem);
+  }
+  
+  .footer-wordmark {
+    font-size: 20vw;
+    line-height: 0.8;
+    transform: translateY(8%);
+  }
+}
