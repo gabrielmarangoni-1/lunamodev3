@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Pedido — LUNA MODE</title>
+  <meta name="description" content="Finalize seu pedido com segurança na LUNA MODE. Pix com desconto imediato e parcelamento sem juros.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-lunamode.png">
+
+  <!-- Google Fonts: Syne & Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'luna-bg': '#0A0C0E',
+            'luna-surface': '#101317',
+            'luna-elevated': '#15191E',
+            'luna-card': '#12161B',
+            'luna-text': '#EDE7DC',
+            'luna-muted': '#9EA5A8',
+            'luna-amber': '#E8913C',
+            'luna-teal': '#2E6B72',
+            'luna-border': 'rgba(237, 231, 220, 0.13)',
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Sora', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="bg-luna-bg text-luna-text font-body antialiased selection:bg-luna-amber selection:text-luna-bg min-h-screen flex flex-col justify-between">
+
+  <!-- HEADER SIMPLIFICADO DE CHECKOUT -->
+  <header class="border-b border-luna-border bg-luna-bg/90 backdrop-blur-md sticky top-0 z-50 py-4 px-6 md:px-12">
+    <div class="max-w-[1280px] mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2 text-xs uppercase tracking-widest text-luna-muted hover:text-luna-amber transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        <span>Voltar para a Loja</span>
+      </a>
+
+      <a href="index.html" class="block">
+        <img src="assets/logo-lunamode.png" alt="LUNA MODE" class="h-8 md:h-10 w-auto object-contain">
+      </a>
+
+      <div class="flex items-center gap-2 text-[11px] font-mono text-luna-muted">
+        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+        <span class="hidden sm:inline">Ambiente Seguro</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL DO CHECKOUT -->
+  <main class="max-w-[1280px] w-full mx-auto px-6 md:px-12 py-10 flex-1">
+    
+    <div class="mb-8">
+      <span class="meta-label text-luna-amber block mb-1">ETAPA 2 DE 2</span>
+      <h1 class="headline-display text-3xl md:text-5xl text-luna-text">FINALIZAR PEDIDO</h1>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- FORMULÁRIO DE ENTREGA E PAGAMENTO (COLUNA ESQUERDA) -->
+      <section class="lg:col-span-7 bg-luna-surface border border-luna-border p-6 md:p-8 rounded-sm">
+        
+        <!-- 1. DADOS DE ENTREGA -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-6 h-6 rounded-full bg-luna-amber text-luna-bg font-bold text-xs flex items-center justify-center">1</span>
+            <h2 class="font-display font-bold text-lg text-luna-text tracking-tight uppercase">Dados de Entrega</h2>
+          </div>
+
+          <form id="checkout-form" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Nome Completo</label>
+                <input type="text" required placeholder="Digite seu nome" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">E-mail para Confirmação</label>
+                <input type="email" required placeholder="seu@email.com" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Telefone / WhatsApp</label>
+                <input type="tel" required placeholder="(11) 99999-9999" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">CPF (para NF-e)</label>
+                <input type="text" required placeholder="000.000.000-00" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">CEP</label>
+                <input type="text" required placeholder="00000-000" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="md:col-span-2">
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Endereço de Entrega</label>
+                <input type="text" required placeholder="Rua, Avenida, Alameda..." class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Número</label>
+                <input type="text" required placeholder="Ex: 120" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Bairro</label>
+                <input type="text" required placeholder="Bairro" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Cidade / Estado</label>
+                <input type="text" required placeholder="São Paulo / SP" class="w-full bg-[#08090b] border border-luna-border px-3.5 py-2.5 text-sm text-luna-text focus:border-luna-amber focus:outline-none transition-colors">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="hairline-divider my-8"></div>
+
+        <!-- 2. FORMA DE PAGAMENTO -->
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-6 h-6 rounded-full bg-luna-amber text-luna-bg font-bold text-xs flex items-center justify-center">2</span>
+            <h2 class="font-display font-bold text-lg text-luna-text tracking-tight uppercase">Forma de Pagamento</h2>
+          </div>
+
+          <!-- Seleção de Métodos -->
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <button type="button" id="tab-pix" class="pay-tab active p-4 border border-luna-amber bg-luna-amber/10 rounded-sm text-left flex flex-col justify-between transition-colors">
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-bold text-sm text-luna-amber">PIX IMEDIATO</span>
+                <span class="bg-luna-amber text-luna-bg font-bold text-[9px] px-1.5 py-0.5 rounded-xs font-mono">DESCONTO</span>
+              </div>
+              <span class="text-xs text-luna-muted">Aprovação instantânea e envio prioritário</span>
+            </button>
+
+            <button type="button" id="tab-card" class="pay-tab p-4 border border-luna-border bg-[#08090b] rounded-sm text-left flex flex-col justify-between transition-colors opacity-70 hover:opacity-100">
+              <div class="flex justify-between items-center mb-2">
+                <span class="font-bold text-sm text-luna-text">CARTÃO DE CRÉDITO</span>
+              </div>
+              <span class="text-xs text-luna-muted">Em até 3x sem juros no checkout</span>
+            </button>
+          </div>
+
+          <!-- Conteúdo PIX -->
+          <div id="content-pix" class="bg-[#08090b] border border-luna-border p-5 rounded-sm mb-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-luna-amber shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+              <div>
+                <p class="text-xs text-luna-text font-medium mb-1">Pague com Pix e garanta a condição promocional</p>
+                <p class="text-[11px] text-luna-muted leading-relaxed">
+                  Ao clicar em <strong>"Finalizar Pedido"</strong>, geraremos o QR Code e o código Pix Copia e Cola para você pagar diretamente pelo aplicativo do seu banco.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Conteúdo Cartão de Crédito (Inicialmente oculto) -->
+          <div id="content-card" class="bg-[#08090b] border border-luna-border p-5 rounded-sm mb-6 hidden space-y-4">
+            <div>
+              <label class="meta-label text-[10px] block mb-1 text-luna-muted">Número do Cartão</label>
+              <input type="text" placeholder="0000 0000 0000 0000" class="w-full bg-luna-card border border-luna-border px-3.5 py-2 text-sm text-luna-text focus:border-luna-amber focus:outline-none">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Validade (MM/AA)</label>
+                <input type="text" placeholder="12/28" class="w-full bg-luna-card border border-luna-border px-3.5 py-2 text-sm text-luna-text focus:border-luna-amber focus:outline-none">
+              </div>
+              <div>
+                <label class="meta-label text-[10px] block mb-1 text-luna-muted">Código CVV</label>
+                <input type="text" placeholder="123" class="w-full bg-luna-card border border-luna-border px-3.5 py-2 text-sm text-luna-text focus:border-luna-amber focus:outline-none">
+              </div>
+            </div>
+            <div>
+              <label class="meta-label text-[10px] block mb-1 text-luna-muted">Parcelamento</label>
+              <select id="card-installments" class="w-full bg-luna-card border border-luna-border px-3.5 py-2 text-sm text-luna-text focus:border-luna-amber focus:outline-none">
+                <!-- Populado dinamicamente via JS -->
+              </select>
+            </div>
+          </div>
+
+          <!-- BOTÃO DE AÇÃO PRINCIPAL -->
+          <button type="button" id="btn-submit-order" class="w-full py-4 bg-luna-amber text-luna-bg font-display font-extrabold text-base tracking-wider uppercase rounded-xs hover:bg-[#f0a050] transition-transform active:scale-[0.99] shadow-lg shadow-luna-amber/20">
+            Confirmar Pedido & Gerar Pagamento
+          </button>
+        </div>
+
+      </section>
+
+      <!-- RESUMO DO PEDIDO SELECIONADO (COLUNA DIREITA) -->
+      <aside class="lg:col-span-5 bg-luna-surface border border-luna-border p-6 md:p-8 rounded-sm lg:sticky lg:top-24">
+        <h2 class="font-display font-bold text-lg text-luna-text tracking-tight uppercase mb-6 pb-4 border-b border-luna-border">
+          Resumo do Item
+        </h2>
+
+        <!-- Card do Produto Selecionado -->
+        <div class="flex gap-4 pb-6 border-b border-luna-border">
+          <div class="w-24 h-24 bg-[#08090b] border border-luna-border p-2 rounded-xs shrink-0 flex items-center justify-center">
+            <img id="product-thumb" src="assets/modal-01.png" alt="Produto LUNA MODE" class="w-full h-full object-contain">
+          </div>
+          <div class="flex-1 flex flex-col justify-between">
+            <div>
+              <span id="product-category" class="meta-label text-[9px] text-luna-amber block">LUNA MODE EXCLUSIVE</span>
+              <h3 id="product-name" class="font-display font-bold text-base text-luna-text leading-snug">Camiseta Palm Angels Logo Preta</h3>
+            </div>
+            <div class="flex items-center justify-between text-xs text-luna-muted mt-2">
+              <span>Tamanho: <strong class="text-luna-text">M</strong></span>
+              <span id="product-unit-price" class="font-semibold text-luna-text">R$ 179,90</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seleção de Tamanho -->
+        <div class="py-5 border-b border-luna-border">
+          <span class="meta-label text-[10px] block mb-2 text-luna-muted">ESCOLHA SEU TAMANHO</span>
+          <div class="flex gap-2">
+            <button type="button" class="size-btn px-3 py-1.5 border border-luna-border text-xs text-luna-muted hover:border-luna-amber hover:text-luna-text transition-colors">P</button>
+            <button type="button" class="size-btn active px-3 py-1.5 border border-luna-amber bg-luna-amber/10 text-xs text-luna-amber font-semibold">M</button>
+            <button type="button" class="size-btn px-3 py-1.5 border border-luna-border text-xs text-luna-muted hover:border-luna-amber hover:text-luna-text transition-colors">G</button>
+            <button type="button" class="size-btn px-3 py-1.5 border border-luna-border text-xs text-luna-muted hover:border-luna-amber hover:text-luna-text transition-colors">GG</button>
+          </div>
+        </div>
+
+        <!-- Linhas de Totais -->
+        <div class="py-6 space-y-3 text-sm">
+          <div class="flex justify-between text-luna-muted">
+            <span>Preço de Tabela</span>
+            <span id="summary-original-price" class="line-through font-mono">R$ 179,90</span>
+          </div>
+
+          <div class="flex justify-between text-luna-amber font-medium">
+            <span>Desconto Pix Aplicado</span>
+            <span id="summary-discount" class="font-mono">- R$ 0,00</span>
+          </div>
+
+          <div class="flex justify-between text-luna-muted">
+            <span>Frete Expresso Nacional</span>
+            <span class="text-emerald-400 font-semibold uppercase text-xs">Grátis</span>
+          </div>
+
+          <div class="pt-4 border-t border-luna-border flex justify-between items-baseline">
+            <span class="font-display font-bold text-base text-luna-text">TOTAL A PAGAR</span>
+            <div class="text-right">
+              <span id="summary-final-price" class="font-display font-extrabold text-2xl text-luna-amber">R$ 179,90</span>
+              <span id="summary-installment-note" class="text-[11px] block text-luna-muted font-light mt-0.5">ou em até 3x sem juros</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges de Confiança -->
+        <div class="pt-6 border-t border-luna-border/60 grid grid-cols-2 gap-3 text-[10px] text-luna-muted">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Garantia de Autenticidade</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-luna-amber"></span>
+            <span>Envio com Seguro</span>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- MODAL DE SUCESSO / PIX QR CODE SIMULADO -->
+  <div id="modal-pix" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-luna-surface border border-luna-border max-w-md w-full p-6 md:p-8 rounded-sm shadow-2xl relative">
+      
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-3">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="font-display font-bold text-xl text-luna-text">PEDIDO RESERVADO!</h3>
+        <p class="text-xs text-luna-muted mt-1">Efetue o pagamento Pix para confirmar o envio.</p>
+      </div>
+
+      <!-- QR Code Mockup Visual -->
+      <div class="bg-white p-4 rounded-xs w-48 h-48 mx-auto mb-6 flex items-center justify-center shadow-inner">
+        <svg class="w-40 h-40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" fill="white"/>
+          <!-- QR pattern representation -->
+          <rect x="10" y="10" width="25" height="25" fill="#0A0C0E"/>
+          <rect x="15" y="15" width="15" height="15" fill="white"/>
+          <rect x="18" y="18" width="9" height="9" fill="#0A0C0E"/>
+          
+          <rect x="65" y="10" width="25" height="25" fill="#0A0C0E"/>
+          <rect x="70" y="15" width="15" height="15" fill="white"/>
+          <rect x="73" y="18" width="9" height="9" fill="#0A0C0E"/>
+          
+          <rect x="10" y="65" width="25" height="25" fill="#0A0C0E"/>
+          <rect x="15" y="70" width="15" height="15" fill="white"/>
+          <rect x="18" y="73" width="9" height="9" fill="#0A0C0E"/>
+          
+          <rect x="42" y="15" width="15" height="6" fill="#0A0C0E"/>
+          <rect x="45" y="30" width="10" height="20" fill="#0A0C0E"/>
+          <rect x="65" y="45" width="25" height="10" fill="#0A0C0E"/>
+          <rect x="40" y="65" width="15" height="25" fill="#0A0C0E"/>
+          <rect x="65" y="65" width="25" height="25" fill="#0A0C0E"/>
+        </svg>
+      </div>
+
+      <!-- Código Pix Copia e Cola -->
+      <div class="mb-6">
+        <label class="meta-label text-[10px] block mb-1 text-luna-muted text-center">CÓDIGO PIX COPIA E COLA</label>
+        <div class="flex items-center gap-2 bg-[#08090b] border border-luna-border p-2.5 rounded-xs">
+          <input type="text" readonly value="00020126580014br.gov.bcb.pix0136lunamode-checkout-pix-order-98215204000053039865405179.905802BR5925LUNA MODE COUTURE LTDA6009SAO PAULO62070503***6304ABCD" class="text-xs text-luna-muted font-mono bg-transparent w-full focus:outline-none select-all" id="pix-code-input">
+          <button type="button" onclick="navigator.clipboard.writeText(document.getElementById('pix-code-input').value); alert('Código Pix copiado com sucesso!');" class="text-xs text-luna-amber hover:underline shrink-0 font-bold px-2">
+            Copiar
+          </button>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <a href="index.html" class="w-full py-3 bg-luna-border text-center text-xs font-bold text-luna-text uppercase tracking-wider hover:bg-luna-border/80 transition-colors">
+          Concluir e Voltar para a Loja
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-luna-border py-6 px-6 md:px-12 text-center text-xs text-luna-muted bg-luna-bg">
+    <p>© 2026 LUNA MODE Couture. Todos os direitos reservados. Pagamentos processados com criptografia 256-bit.</p>
+  </footer>
+
+  <!-- SCRIPT DE GERENCIAMENTO DE PRODUTO DO CHECKOUT -->
+  <script>
+    const PRODUCTS = {
+      'modal-01': {
+        name: 'Camiseta Palm Angels Logo Preta',
+        category: 'PALM ANGELS · STREETWEAR',
+        image: 'assets/modal-01.png',
+        originalPrice: 'R$ 179,90',
+        pixPrice: 'R$ 179,90',
+        discount: 'R$ 0,00',
+        installments: 'ou 1x de R$ 179,90 sem juros'
+      },
+      'modal-02': {
+        name: 'Jaqueta Nike Club Masculina',
+        category: 'NIKE CLUB · 20% OFF NO PIX',
+        image: 'assets/modal-02.png',
+        originalPrice: 'R$ 449,99',
+        pixPrice: 'R$ 359,99',
+        discount: 'R$ 90,00',
+        installments: 'ou 3x de R$ 126,31 sem juros (16% off)'
+      },
+      'modal-03': {
+        name: 'Blusão Nike Club Fleece Masculino',
+        category: 'NIKE FLEECE · 29% OFF NO PIX',
+        image: 'assets/modal-03.png',
+        originalPrice: 'R$ 449,99',
+        pixPrice: 'R$ 319,99',
+        discount: 'R$ 130,00',
+        installments: 'ou 2x de R$ 168,41 sem juros (25% off)'
+      },
+      'modal-04': {
+        name: 'Shorts Nike Club Masculino',
+        category: 'NIKE ESSENTIALS · 27% OFF NO PIX',
+        image: 'assets/modal-04.png',
+        originalPrice: 'R$ 299,99',
+        pixPrice: 'R$ 218,99',
+        discount: 'R$ 81,00',
+        installments: 'ou 1x de R$ 230,52 sem juros (23% off)'
+      }
+    };
+
+    // Obter produto da URL (?id=modal-01)
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id') || 'modal-01';
+    const product = PRODUCTS[productId] || PRODUCTS['modal-01'];
+
+    // Preencher informações na tela
+    document.getElementById('product-thumb').src = product.image;
+    document.getElementById('product-name').textContent = product.name;
+    document.getElementById('product-category').textContent = product.category;
+    document.getElementById('product-unit-price').textContent = product.pixPrice;
+    document.getElementById('summary-original-price').textContent = product.originalPrice;
+    document.getElementById('summary-discount').textContent = `- ${product.discount}`;
+    document.getElementById('summary-final-price').textContent = product.pixPrice;
+    document.getElementById('summary-installment-note').textContent = product.installments;
+
+    // Tabs de Pagamento
+    const tabPix = document.getElementById('tab-pix');
+    const tabCard = document.getElementById('tab-card');
+    const contentPix = document.getElementById('content-pix');
+    const contentCard = document.getElementById('content-card');
+
+    tabPix.addEventListener('click', () => {
+      tabPix.classList.add('border-luna-amber', 'bg-luna-amber/10');
+      tabPix.classList.remove('opacity-70');
+      tabCard.classList.remove('border-luna-amber', 'bg-luna-amber/10');
+      tabCard.classList.add('opacity-70');
+      contentPix.classList.remove('hidden');
+      contentCard.classList.add('hidden');
+      document.getElementById('summary-final-price').textContent = product.pixPrice;
+    });
+
+    tabCard.addEventListener('click', () => {
+      tabCard.classList.add('border-luna-amber', 'bg-luna-amber/10');
+      tabCard.classList.remove('opacity-70');
+      tabPix.classList.remove('border-luna-amber', 'bg-luna-amber/10');
+      tabPix.classList.add('opacity-70');
+      contentCard.classList.remove('hidden');
+      contentPix.classList.add('hidden');
+      document.getElementById('summary-final-price').textContent = product.originalPrice;
+    });
+
+    // Seletor de Tamanhos
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.size-btn').forEach(b => {
+          b.classList.remove('active', 'border-luna-amber', 'bg-luna-amber/10', 'text-luna-amber', 'font-semibold');
+          b.classList.add('border-luna-border', 'text-luna-muted');
+        });
+        btn.classList.add('active', 'border-luna-amber', 'bg-luna-amber/10', 'text-luna-amber', 'font-semibold');
+      });
+    });
+
+    // Finalizar Pedido
+    document.getElementById('btn-submit-order').addEventListener('click', () => {
+      document.getElementById('modal-pix').classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>

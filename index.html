@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUNA MODE — Luxury & Contemporary Streetwear</title>
+  <meta name="description" content="LUNA MODE — Edição exclusiva de moda contemporânea, streetwear de luxo e peças essenciais. Coleção Primavera / Verão 2026.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo-lunamode.png">
+
+  <!-- Google Fonts: Syne (Headings) & Sora (Body/Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'luna-bg': '#0A0C0E',
+            'luna-surface': '#101317',
+            'luna-elevated': '#15191E',
+            'luna-card': '#12161B',
+            'luna-text': '#EDE7DC',
+            'luna-muted': '#9EA5A8',
+            'luna-amber': '#E8913C',
+            'luna-teal': '#2E6B72',
+            'luna-border': 'rgba(237, 231, 220, 0.13)',
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Sora', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Design System & Motion CSS -->
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="bg-luna-bg text-luna-text font-body antialiased selection:bg-luna-amber selection:text-luna-bg overflow-x-hidden">
+
+  <!-- =========================================================================
+       1. NAVIGATION / HEADER (58px Fixed Glass Blur com Logo Oficial)
+       ========================================================================= -->
+  <header class="site-header" role="banner">
+    <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12 flex items-center justify-between">
+      
+      <!-- Brand Logo Oficial em PNG sem fundo -->
+      <a href="#" class="flex items-center gap-3 py-1 group" aria-label="LUNA MODE Home">
+        <img 
+          src="assets/logo-lunamode.png" 
+          
+          alt="LUNA MODE" 
+          class="h-9 md:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        >
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 lg:gap-12" aria-label="Navegação Principal">
+        <a href="#new-arrivals" class="nav-link">New Arrivals</a>
+        <a href="#collection" class="nav-link">Collections</a>
+        <a href="#lookbook" class="nav-link">Lookbook</a>
+        <a href="#catalog" class="nav-link">Produtos</a>
+        <a href="#deck" class="nav-link">Deck 3D</a>
+        <a href="#philosophy" class="nav-link">Philosophy</a>
+      </nav>
+
+      <!-- CTA & Mobile Trigger -->
+      <div class="flex items-center gap-4">
+        <a href="#catalog" class="nav-btn-shop hidden sm:inline-block">Shop Now</a>
+        
+        <button type="button" class="btn-mobile-menu md:hidden text-luna-text p-2 focus:outline-none" aria-label="Abrir Menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-menu-drawer" aria-hidden="true">
+    <div class="flex justify-between items-center mb-8">
+      <img src="assets/logo-lunamode.png"  alt="LUNA MODE" class="h-10 w-auto object-contain">
+      <button type="button" class="btn-mobile-close p-2 text-luna-text" aria-label="Fechar Menu">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 text-xl font-display font-bold tracking-tight">
+      <a href="#new-arrivals" class="hover:text-luna-amber transition-colors">NEW ARRIVALS</a>
+      <a href="#collection" class="hover:text-luna-amber transition-colors">COLLECTIONS</a>
+      <a href="#lookbook" class="hover:text-luna-amber transition-colors">LOOKBOOK</a>
+      <a href="#catalog" class="hover:text-luna-amber transition-colors text-luna-amber">CATÁLOGO DE PRODUTOS</a>
+      <a href="#deck" class="hover:text-luna-amber transition-colors">INTERACTIVE DECK</a>
+      <a href="#philosophy" class="hover:text-luna-amber transition-colors">PHILOSOPHY</a>
+      <a href="#campaign" class="hover:text-luna-amber transition-colors">CAMPAIGN</a>
+    </nav>
+    <div class="mt-auto pt-8 border-t border-luna-border flex justify-between items-center text-xs tracking-widest text-luna-muted font-body">
+      <span>PARIS / SÃO PAULO</span>
+      <span>EST. 2026</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO — PORTAL OPENING EXPERIENCE (250vh Sticky Portal)
+         ========================================================================= -->
+    <section class="hero-scroll-container" aria-label="Hero Experience">
+      <div class="hero-sticky-stage">
+
+        <!-- Two Portal Panels (Left & Right Architectural Portals) -->
+        <div class="portal-panel portal-panel-left">
+          <div class="portal-wireframe"></div>
+          <div class="meta-label">Spring / Summer 2026</div>
+          <div class="stroke-number text-5xl md:text-7xl opacity-20">01</div>
+          <div class="meta-label">Architecture of Form</div>
+        </div>
+
+        <div class="portal-panel portal-panel-right">
+          <div class="portal-wireframe"></div>
+          <div class="meta-label text-right">Paris / São Paulo</div>
+          <div class="stroke-number text-5xl md:text-7xl text-right opacity-20">LM</div>
+          <div class="meta-label text-right">Edition No. 01</div>
+        </div>
+
+        <!-- Typography Split: LUNA (Left) and MODE (Right) -->
+        <div class="hero-split-wrapper">
+          <span class="split-luna">LUNA</span>
+          <span class="split-mode">MODE</span>
+        </div>
+
+        <!-- Controlled Accent Particles (Amber Glow Points) -->
+        <div class="hero-particle particle-1" aria-hidden="true"></div>
+        <div class="hero-particle particle-2" aria-hidden="true"></div>
+
+        <!-- Hero Reveal: Laptop "Website inside Website" -->
+        <div class="hero-laptop-container">
+          <div class="laptop-frame">
+            <div class="flex items-center gap-1.5 pb-2 px-1">
+              <span class="w-2.5 h-2.5 rounded-full bg-red-500/60 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60 inline-block"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-500/60 inline-block"></span>
+              <span class="ml-3 text-[10px] text-luna-muted font-mono tracking-wider opacity-70">lunamode.couture/flagship-experience</span>
+            </div>
+            <div class="laptop-screen-glass">
+              <img 
+                src="assets/hero-laptop.jpg" 
+                data-fallback="assets/Gemini_Generated_Image_z82azlz82azlz82a.jpg"
+                alt="LUNA MODE Digital Flagship no Laptop"
+                loading="eager"
+                decoding="async"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+          <span class="meta-label tracking-[0.25em] text-[10px]">SCROLL TO ENTER</span>
+          <div class="scroll-line"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. SECTION — EDITORIAL STATEMENT (Section 01)
+         ========================================================================= -->
+    <section id="new-arrivals" class="editorial-statement-section">
+      <div class="statement-bg-number stroke-number">01</div>
+
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left: Floating Circular Campaign Element -->
+        <div class="lg:col-span-5 flex justify-center lg:justify-start">
+          <div class="floating-circle-frame">
+            <div class="floating-circle-inner">
+              <img 
+                src="assets/model-01.jpg" 
+                data-fallback="assets/Gemini_Generated_Image_5iih315iih315iih.jpg"
+                alt="Helena Vance — Campanha LUNA MODE" 
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Statement & Typographic Rhythm -->
+        <div class="lg:col-span-7 flex flex-col justify-center">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-2 h-2 rounded-full bg-luna-amber"></span>
+            <span class="meta-label text-luna-amber">Editorial Manifesto · 2026</span>
+          </div>
+
+          <h2 class="headline-display text-3xl sm:text-5xl lg:text-6xl text-luna-text mb-8 leading-[0.95]">
+            THE NEW LANGUAGE<br>
+            OF EVERYDAY FORM.
+          </h2>
+
+          <div class="hairline-divider mb-8"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-luna-muted text-sm sm:text-base font-light leading-relaxed">
+            <p>
+              Rejeitamos o efêmero para esculpir peças que respondem à gravidade, ao corpo e ao tempo. Cada silhueta é construída a partir de princípios de pureza geométrica e tecidos puros de alta fiação.
+            </p>
+            <p>
+              Nossa curadoria contemporânea une streetwear de luxo autêntico com a sobriedade arquitetônica da alta moda internacional.
+            </p>
+          </div>
+
+          <div class="mt-10 flex items-center gap-8">
+            <div>
+              <span class="meta-label block text-xs text-luna-text">COORDENADAS</span>
+              <span class="text-xs text-luna-muted font-mono">48.8566° N / 23.5505° W</span>
+            </div>
+            <div class="w-px h-8 bg-luna-border"></div>
+            <div>
+              <span class="meta-label block text-xs text-luna-text">MATERIAIS</span>
+              <span class="text-xs text-luna-muted">Algodão Premium & Fleece Técnico</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. SECTION — COLLECTION 01 (Asymmetric Editorial Two-Column)
+         ========================================================================= -->
+    <section id="collection" class="collection-section">
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          
+          <!-- Left Column (Sticky Title & Editorial Rationale) -->
+          <div class="lg:col-span-5 lg:sticky lg:top-32 self-start flex flex-col justify-between">
+            <div>
+              <span class="meta-label text-luna-amber block mb-4">SEASON CAPSULE 01</span>
+              <h2 class="headline-display text-4xl sm:text-6xl text-luna-text mb-6">
+                EPHEMERAL<br>STRUCTURE
+              </h2>
+              <p class="text-luna-muted text-sm sm:text-base font-light leading-relaxed mb-8">
+                Streetwear elevado, proporções soltas e tecidos técnicos respiráveis. Uma seleção refinada para quem busca distinção visual e conforto absoluto no cotidiano.
+              </p>
+
+              <!-- Technical Metadata List -->
+              <div class="border-t border-b border-luna-border py-6 flex flex-col gap-4 mb-8">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="meta-label">CORTE</span>
+                  <span class="text-luna-text font-mono">Relaxed Architectural Fit</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span class="meta-label">AUTENTICIDADE</span>
+                  <span class="text-luna-text font-mono">Peças Originais Verificadas</span>
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                  <span class="meta-label">DISPONIBILIDADE</span>
+                  <span class="text-luna-text font-mono">Pronta Entrega no Brasil</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#catalog" class="nav-btn-shop text-center w-full sm:w-auto inline-block">
+              Ver Produtos Selecionados
+            </a>
+          </div>
+
+          <!-- Right Column (Asymmetric Image Staggering) -->
+          <div class="lg:col-span-7 flex flex-col gap-12 sm:gap-16">
+            
+            <!-- Lead Editorial Image -->
+            <div class="editorial-img-reveal border border-luna-border">
+              <div class="relative aspect-[3/4] w-full overflow-hidden bg-luna-elevated">
+                <img 
+                  src="assets/model-01.jpg" 
+                  data-fallback="assets/Gemini_Generated_Image_5iih315iih315iih.jpg"
+                  alt="Helena Vance — Linho Cru e Alfaiataria" 
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="absolute bottom-4 left-4 z-10 bg-luna-bg/80 backdrop-blur-md px-4 py-2 border border-luna-border">
+                  <span class="meta-label text-[10px] text-luna-text">FIG. 01 — HELENA VANCE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Staggered Secondary Image -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 items-end">
+              <div class="editorial-img-reveal border border-luna-border sm:translate-y-8">
+                <div class="relative aspect-[4/5] w-full overflow-hidden bg-luna-elevated">
+                  <img 
+                    src="assets/model-03.jpg" 
+                    data-fallback="assets/Gemini_Generated_Image_h7au9kh7au9kh7au.jpg"
+                    alt="Maya Lin — Sobrecamisa Urbana" 
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <div class="absolute bottom-4 left-4 z-10 bg-luna-bg/80 backdrop-blur-md px-3 py-1.5 border border-luna-border">
+                    <span class="meta-label text-[9px] text-luna-text">FIG. 02 — URBAN WEAVE</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detail Card -->
+              <div class="p-8 bg-luna-surface border border-luna-border flex flex-col justify-between h-fit">
+                <span class="stroke-number text-4xl block mb-4">02</span>
+                <p class="text-xs text-luna-muted uppercase tracking-widest leading-loose mb-6">
+                  "O luxo contemporâneo não busca chamar atenção pelo ruído, mas pelo silêncio irrepreensível de um caimento perfeito."
+                </p>
+                <span class="meta-label text-[10px] text-luna-amber">STUDIO LUNA MODE</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. SECTION — THE LOOKBOOK (Horizontal Runway Visuals)
+         ========================================================================= -->
+    <section id="lookbook" class="lookbook-section py-24 border-b border-luna-border">
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="meta-label text-luna-amber block mb-2">RUNWAY & CAMPAIGN</span>
+          <h2 class="headline-display text-4xl sm:text-6xl text-luna-text">THE LOOKBOOK</h2>
+        </div>
+        <p class="text-xs text-luna-muted font-mono tracking-widest max-w-sm">
+          SEQUÊNCIA CURADA DE 04 SILHUETAS FUNDAMENTAIS PARA A TEMPORADA 2026.
+        </p>
+      </div>
+
+      <!-- Horizontal Sequence Container -->
+      <div class="w-full overflow-x-auto pb-8 scrollbar-none">
+        <div class="lookbook-sticky-track">
+          
+          <!-- Look 01 -->
+          <article class="lookbook-item">
+            <div class="lookbook-image-box mb-4">
+              <img 
+                src="assets/model-01.jpg" 
+                data-fallback="assets/Gemini_Generated_Image_5iih315iih315iih.jpg"
+                alt="LOOK 01 — Linen Structure"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="font-display font-bold text-lg text-luna-text">LOOK 01</h3>
+              <span class="meta-label text-luna-amber text-[10px]">LINEN STRUCTURE</span>
+            </div>
+            <p class="text-xs text-luna-muted font-light">Helena Vance — Tricot verde oliva estruturado em composição de autor.</p>
+          </article>
+
+          <!-- Look 02 -->
+          <article class="lookbook-item">
+            <div class="lookbook-image-box mb-4">
+              <img 
+                src="assets/model-02.jpg" 
+                data-fallback="assets/Gemini_Generated_Image_iksdv1iksdv1iksd.jpg"
+                alt="LOOK 02 — Urban Essentials"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="font-display font-bold text-lg text-luna-text">LOOK 02</h3>
+              <span class="meta-label text-luna-teal text-[10px]">URBAN ESSENTIALS</span>
+            </div>
+            <p class="text-xs text-luna-muted font-light">Kenji Sato — Jaqueta técnica urbana e sobreposição minimalista.</p>
+          </article>
+
+          <!-- Look 03 -->
+          <article class="lookbook-item">
+            <div class="lookbook-image-box mb-4">
+              <img 
+                src="assets/model-03.jpg" 
+                data-fallback="assets/Gemini_Generated_Image_h7au9kh7au9kh7au.jpg"
+                alt="LOOK 03 — Soft Contrast"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="font-display font-bold text-lg text-luna-text">LOOK 03</h3>
+              <span class="meta-label text-luna-amber text-[10px]">SOFT CONTRAST</span>
+            </div>
+            <p class="text-xs text-luna-muted font-light">Maya Lin — Camiseta branca clássica com sobrecamisa escura solta.</p>
+          </article>
+
+          <!-- Look 04 -->
+          <article class="lookbook-item">
+            <div class="lookbook-image-box mb-4">
+              <img 
+                src="assets/model-04.jpg" 
+                data-fallback="assets/model-01.jpg"
+                alt="LOOK 04 — Modern Form"
+                loading="lazy"
+                decoding="async"
+              >
+            </div>
+            <div class="flex justify-between items-baseline mb-1">
+              <h3 class="font-display font-bold text-lg text-luna-text">LOOK 04</h3>
+              <span class="meta-label text-luna-muted text-[10px]">MODERN FORM</span>
+            </div>
+            <p class="text-xs text-luna-muted font-light">Textura e alfaiataria em proporções amplas com acabamentos precisos.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SECTION — PRODUCTS / CATALOG (Com as 4 Imagens e Legendas Oficiais)
+         ========================================================================= -->
+    <section id="catalog" class="catalog-section">
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 pb-6 border-b border-luna-border">
+          <div>
+            <span class="meta-label text-luna-amber block mb-2">CURATED PIECES · PRONTA ENTREGA</span>
+            <h2 class="headline-display text-4xl sm:text-5xl text-luna-text">SELECTED EDITION</h2>
+          </div>
+          <span class="meta-label text-xs">04 PEÇAS DISPONÍVEIS COM CONDIÇÕES ESPECIAIS</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+          
+          <!-- Product 1: Camiseta Palm Angels Logo Preta (modal-01) -->
+          <article class="product-item group bg-luna-card p-4 border border-luna-border rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="product-image-container bg-[#08090b] flex items-center justify-center p-3 relative">
+                <img 
+                  src="assets/modal-01.png" 
+                  alt="Camiseta Palm Angels Logo Preta"
+                  class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="absolute top-2 left-2 bg-luna-bg/85 backdrop-blur-md px-2 py-0.5 text-[9px] font-mono uppercase text-luna-text border border-luna-border">
+                  EXCLUSIVO
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-2 mb-1">
+                <span class="meta-label text-[9px] text-luna-amber">PALM ANGELS</span>
+                <span class="text-[10px] text-luna-muted font-mono">0 Avaliações</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-luna-text group-hover:text-luna-amber transition-colors leading-snug">
+                Camiseta Palm Angels Logo Preta
+              </h3>
+
+              <div class="mt-2 text-xs text-luna-muted space-y-0.5 font-light">
+                <p><span class="text-luna-text">Cor:</span> Preta</p>
+                <p class="text-[11px] text-luna-muted/80">Frete calculado no checkout.</p>
+              </div>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-luna-border/60">
+              <div class="mb-2">
+                <span class="text-[11px] text-luna-muted block font-mono">Preço normal</span>
+                <span class="font-display text-lg font-bold text-luna-text">R$ 179,90</span>
+              </div>
+              <a href="checkout.html?id=modal-01" class="product-btn-add w-full justify-center text-center block">
+                Comprar Agora
+              </a>
+            </div>
+          </article>
+
+          <!-- Product 2: Jaqueta Nike Club Masculina (modal-02) -->
+          <article class="product-item group bg-luna-card p-4 border border-luna-border rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="product-image-container bg-[#08090b] flex items-center justify-center p-3 relative">
+                <img 
+                  src="assets/modal-02.png" 
+                  alt="Jaqueta Nike Club Masculina"
+                  class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="absolute top-2 left-2 bg-luna-amber px-2 py-0.5 text-[9px] font-mono uppercase font-bold text-luna-bg">
+                  20% OFF
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-2 mb-1">
+                <span class="meta-label text-[9px] text-luna-teal">NIKE CLUB</span>
+                <span class="text-[10px] text-luna-amber font-mono font-semibold">20% off no Pix</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-luna-text group-hover:text-luna-amber transition-colors leading-snug">
+                Jaqueta Nike Club Masculina
+              </h3>
+
+              <div class="mt-2 text-xs text-luna-muted space-y-0.5 font-light">
+                <p class="text-xs text-luna-muted/80">
+                  ou <strong class="text-luna-text">3x de R$ 126,31</strong> sem juros <span class="text-luna-amber">(16% off)</span>
+                </p>
+                <a href="checkout.html" class="text-[10px] text-luna-amber hover:underline block pt-0.5">Ver condições</a>
+              </div>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-luna-border/60">
+              <div class="mb-2">
+                <span class="text-[11px] text-luna-muted/80 line-through block font-mono">De R$ 449,99</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-display text-lg font-bold text-luna-amber">R$ 359,99</span>
+                  <span class="text-[11px] text-luna-text font-mono">no Pix</span>
+                </div>
+              </div>
+              <a href="checkout.html?id=modal-02" class="product-btn-add w-full justify-center text-center block">
+                Comprar no Pix
+              </a>
+            </div>
+          </article>
+
+          <!-- Product 3: Blusão Nike Club Fleece Masculino (modal-03) -->
+          <article class="product-item group bg-luna-card p-4 border border-luna-border rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="product-image-container bg-[#08090b] flex items-center justify-center p-3 relative">
+                <img 
+                  src="assets/modal-03.png" 
+                  alt="Blusão Nike Club Fleece Masculino"
+                  class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="absolute top-2 left-2 bg-luna-amber px-2 py-0.5 text-[9px] font-mono uppercase font-bold text-luna-bg">
+                  29% OFF
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-2 mb-1">
+                <span class="meta-label text-[9px] text-luna-teal">NIKE CLUB FLEECE</span>
+                <span class="text-[10px] text-luna-amber font-mono font-semibold">29% off no Pix</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-luna-text group-hover:text-luna-amber transition-colors leading-snug">
+                Blusão Nike Club Fleece Masculino
+              </h3>
+
+              <div class="mt-2 text-xs text-luna-muted space-y-0.5 font-light">
+                <p class="text-xs text-luna-muted/80">
+                  ou <strong class="text-luna-text">2x de R$ 168,41</strong> sem juros <span class="text-luna-amber">(25% off)</span>
+                </p>
+                <a href="checkout.html" class="text-[10px] text-luna-amber hover:underline block pt-0.5">Ver condições</a>
+              </div>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-luna-border/60">
+              <div class="mb-2">
+                <span class="text-[11px] text-luna-muted/80 line-through block font-mono">De R$ 449,99</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-display text-lg font-bold text-luna-amber">R$ 319,99</span>
+                  <span class="text-[11px] text-luna-text font-mono">no Pix</span>
+                </div>
+              </div>
+              <a href="checkout.html?id=modal-03" class="product-btn-add w-full justify-center text-center block">
+                Comprar no Pix
+              </a>
+            </div>
+          </article>
+
+          <!-- Product 4: Shorts Nike Club Masculino (modal-04) -->
+          <article class="product-item group bg-luna-card p-4 border border-luna-border rounded-sm flex flex-col justify-between">
+            <div>
+              <div class="product-image-container bg-[#08090b] flex items-center justify-center p-3 relative">
+                <img 
+                  src="assets/modal-04.png" 
+                  alt="Shorts Nike Club Masculino"
+                  class="w-full h-full object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <div class="absolute top-2 left-2 bg-luna-amber px-2 py-0.5 text-[9px] font-mono uppercase font-bold text-luna-bg">
+                  27% OFF
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mt-2 mb-1">
+                <span class="meta-label text-[9px] text-luna-teal">NIKE ESSENTIALS</span>
+                <span class="text-[10px] text-luna-amber font-mono font-semibold">27% off no Pix</span>
+              </div>
+
+              <h3 class="font-display font-bold text-base text-luna-text group-hover:text-luna-amber transition-colors leading-snug">
+                Shorts Nike Club Masculino
+              </h3>
+
+              <div class="mt-2 text-xs text-luna-muted space-y-0.5 font-light">
+                <p class="text-xs text-luna-muted/80">
+                  ou <strong class="text-luna-text">1x de R$ 230,52</strong> sem juros <span class="text-luna-amber">(23% off)</span>
+                </p>
+                <a href="checkout.html" class="text-[10px] text-luna-amber hover:underline block pt-0.5">Ver condições</a>
+              </div>
+            </div>
+
+            <div class="pt-4 mt-4 border-t border-luna-border/60">
+              <div class="mb-2">
+                <span class="text-[11px] text-luna-muted/80 line-through block font-mono">De R$ 299,99</span>
+                <div class="flex items-baseline gap-1.5">
+                  <span class="font-display text-lg font-bold text-luna-amber">R$ 218,99</span>
+                  <span class="text-[11px] text-luna-text font-mono">no Pix</span>
+                </div>
+              </div>
+              <a href="checkout.html?id=modal-04" class="product-btn-add w-full justify-center text-center block">
+                Comprar no Pix
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. INTERACTIVE CARD DECK (Explore com Gestos os 4 Produtos)
+         ========================================================================= -->
+    <section id="deck" class="deck-section">
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12 mb-12 text-center">
+        <span class="meta-label text-luna-amber block mb-2">INTERACTIVE FASHION DECK</span>
+        <h2 class="headline-display text-3xl sm:text-5xl text-luna-text mb-4">DRAG & EXPLORE</h2>
+        <p class="text-xs text-luna-muted font-light max-w-md mx-auto">
+          Arraste o card superior para os lados além de 20% para lançá-lo e revelar a próxima peça do catálogo.
+        </p>
+      </div>
+
+      <!-- 3D Stacked Container -->
+      <div class="deck-container">
+        
+        <!-- Card 01: Camiseta Palm Angels -->
+        <div class="deck-card" data-index="0">
+          <div class="deck-card-image bg-[#0a0c0e] flex items-center justify-center p-4">
+            <img 
+              src="assets/modal-01.png" 
+              alt="Camiseta Palm Angels Logo Preta"
+              class="w-full h-full object-contain filter drop-shadow-lg"
+            >
+          </div>
+          <div class="deck-card-body">
+            <div>
+              <span class="meta-label text-[9px] text-luna-amber">PALM ANGELS</span>
+              <h4 class="font-display font-bold text-sm sm:text-base text-luna-text">Camiseta Logo Preta</h4>
+            </div>
+            <span class="text-xs font-mono text-luna-text font-bold">R$ 179,90</span>
+          </div>
+        </div>
+
+        <!-- Card 02: Jaqueta Nike Club -->
+        <div class="deck-card" data-index="1">
+          <div class="deck-card-image bg-[#0a0c0e] flex items-center justify-center p-4">
+            <img 
+              src="assets/modal-02.png" 
+              alt="Jaqueta Nike Club Masculina"
+              class="w-full h-full object-contain filter drop-shadow-lg"
+            >
+          </div>
+          <div class="deck-card-body">
+            <div>
+              <span class="meta-label text-[9px] text-luna-teal">NIKE CLUB · 20% OFF</span>
+              <h4 class="font-display font-bold text-sm sm:text-base text-luna-text">Jaqueta Nike Club</h4>
+            </div>
+            <span class="text-xs font-mono text-luna-amber font-bold">R$ 359,99</span>
+          </div>
+        </div>
+
+        <!-- Card 03: Blusão Nike Fleece -->
+        <div class="deck-card" data-index="2">
+          <div class="deck-card-image bg-[#0a0c0e] flex items-center justify-center p-4">
+            <img 
+              src="assets/modal-03.png" 
+              alt="Blusão Nike Club Fleece Masculino"
+              class="w-full h-full object-contain filter drop-shadow-lg"
+            >
+          </div>
+          <div class="deck-card-body">
+            <div>
+              <span class="meta-label text-[9px] text-luna-amber">NIKE FLEECE · 29% OFF</span>
+              <h4 class="font-display font-bold text-sm sm:text-base text-luna-text">Blusão Fleece</h4>
+            </div>
+            <span class="text-xs font-mono text-luna-amber font-bold">R$ 319,99</span>
+          </div>
+        </div>
+
+        <!-- Card 04: Shorts Nike Club -->
+        <div class="deck-card" data-index="3">
+          <div class="deck-card-image bg-[#0a0c0e] flex items-center justify-center p-4">
+            <img 
+              src="assets/modal-04.png" 
+              alt="Shorts Nike Club Masculino"
+              class="w-full h-full object-contain filter drop-shadow-lg"
+            >
+          </div>
+          <div class="deck-card-body">
+            <div>
+              <span class="meta-label text-[9px] text-luna-teal">NIKE ESSENTIALS · 27% OFF</span>
+              <h4 class="font-display font-bold text-sm sm:text-base text-luna-text">Shorts Nike Club</h4>
+            </div>
+            <span class="text-xs font-mono text-luna-amber font-bold">R$ 218,99</span>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- 1px Progress Indicator -->
+      <div class="deck-progress-wrapper">
+        <span class="deck-progress-current meta-label text-xs font-mono text-luna-text">01 / 04</span>
+        <div class="deck-progress-bar">
+          <div class="deck-progress-fill"></div>
+        </div>
+        <button type="button" class="btn-deck-reset meta-label text-[10px] text-luna-muted hover:text-luna-amber transition-colors">
+          REINICIAR
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. SECTION — BRAND PHILOSOPHY ("FORM FOLLOWS FEELING.")
+         ========================================================================= -->
+    <section id="philosophy" class="philosophy-section">
+      <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12">
+        
+        <span class="meta-label text-luna-amber block mb-8">MANIFESTO 2026</span>
+
+        <div class="flex flex-col gap-2 mb-16">
+          <span class="philosophy-line">FORM</span>
+          <span class="philosophy-line text-luna-muted">FOLLOWS</span>
+          <span class="philosophy-line">FEELING.</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-luna-border">
+          <div>
+            <span class="meta-label block text-xs text-luna-text mb-2">01 / ARQUITETURA</span>
+            <p class="text-xs text-luna-muted font-light leading-relaxed">
+              Inspirados pelo minimalismo brutalista: o corte, a silhueta e a textura de cada peça definem sua presença no espaço.
+            </p>
+          </div>
+
+          <div>
+            <span class="meta-label block text-xs text-luna-text mb-2">02 / PERFORMANCE</span>
+            <p class="text-xs text-luna-muted font-light leading-relaxed">
+              Materiais respiráveis, flexíveis e duradouros projetados para responder com conforto ao ritmo urbano diário.
+            </p>
+          </div>
+
+          <div>
+            <span class="meta-label block text-xs text-luna-text mb-2">03 / EXCLUSIVIDADE</span>
+            <p class="text-xs text-luna-muted font-light leading-relaxed">
+              Curadoria estrita e autenticidade inegociável. Cada item possui padrão de acabamento editorial.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. SECTION — CAMPAIGN FULL-WIDTH (Cinematic Scroll Zoom & Color)
+         ========================================================================= -->
+    <section id="campaign" class="campaign-section" aria-label="Campanha Visual">
+      <div class="campaign-bg-wrapper">
+        <img 
+          src="assets/model-02.jpg" 
+          data-fallback="assets/Gemini_Generated_Image_iksdv1iksdv1iksd.jpg"
+          alt="LUNA MODE Summer 2026 Visual Campaign"
+          class="campaign-bg-img"
+          loading="lazy"
+          decoding="async"
+        >
+      </div>
+
+      <div class="campaign-overlay"></div>
+
+      <!-- Centered Typography & Discovery CTA -->
+      <div class="relative z-10 text-center px-6">
+        <span class="meta-label text-luna-amber tracking-[0.3em] block mb-4">SUMMER / 2026</span>
+        <h2 class="headline-display text-4xl sm:text-7xl lg:text-8xl text-luna-text mb-8">
+          THE LIGHT OF FORM
+        </h2>
+        <a href="#catalog" class="nav-btn-shop bg-luna-bg/60 backdrop-blur-md">
+          DISCOVER COLLECTION
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. FOOTER COM LOGO OFICIAL & GIANT ARCHITECTURAL WORDMARK (20vw)
+       ========================================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="max-w-[1440px] w-full mx-auto px-6 md:px-12">
+      
+      <!-- Newsletter & Brand Heading -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-luna-border">
+        
+        <div class="lg:col-span-6">
+          <div class="flex items-center gap-4 mb-4">
+            <img 
+              src="assets/logo-lunamode.png" 
+              
+              alt="LUNA MODE Logo" 
+              class="h-12 w-auto object-contain"
+            >
+          </div>
+          <p class="text-xs text-luna-muted font-light max-w-md leading-relaxed">
+            Receba convites privados para pré-lançamentos, lookbooks exclusivos e publicações editoriais do atelier LUNA MODE.
+          </p>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col justify-end">
+          <span class="meta-label text-luna-amber block mb-3">JOIN THE LIST</span>
+          <form class="flex flex-col sm:flex-row gap-4" onsubmit="event.preventDefault(); alert('Inscrição confirmada na lista exclusiva LUNA MODE.');">
+            <input 
+              type="email" 
+              placeholder="Digite seu e-mail" 
+              class="newsletter-input" 
+              required
+            >
+            <button type="submit" class="newsletter-btn whitespace-nowrap">
+              Inscrever-se
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Institutional Links & Credits -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 text-xs text-luna-muted">
+        <div>
+          <span class="meta-label block text-luna-text mb-4">STUDIO</span>
+          <ul class="flex flex-col gap-2 font-light">
+            <li>São Paulo: Jardins, Al. Lorena</li>
+            <li>Paris: 14 Rue de Turenne</li>
+            <li>contato@lunamode.couture</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="meta-label block text-luna-text mb-4">DIGITAL</span>
+          <ul class="flex flex-col gap-2 font-light">
+            <li><a href="#" class="hover:text-luna-text transition-colors">Instagram @lunamode</a></li>
+            <li><a href="#" class="hover:text-luna-text transition-colors">Runway Archive</a></li>
+            <li><a href="#" class="hover:text-luna-text transition-colors">Soundtrack & Playlist</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="meta-label block text-luna-text mb-4">PAGAMENTOS</span>
+          <ul class="flex flex-col gap-2 font-light">
+            <li>Pix com desconto imediato</li>
+            <li>Cartão de Crédito sem juros</li>
+            <li>Envio seguro com rastreamento</li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="meta-label block text-luna-text mb-4">LEGAL</span>
+          <ul class="flex flex-col gap-2 font-light">
+            <li><a href="#" class="hover:text-luna-text transition-colors">Termos de Serviço</a></li>
+            <li><a href="#" class="hover:text-luna-text transition-colors">Política de Privacidade</a></li>
+            <li><a href="#" class="hover:text-luna-text transition-colors">Garantia de Autenticidade</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Gigantic Architectural 20vw Wordmark -->
+    <div class="footer-wordmark" aria-hidden="true">
+      LUNA MODE
+    </div>
+  </footer>
+
+  <!-- Compiled Controller Module -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
